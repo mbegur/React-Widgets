@@ -1,0 +1,13 @@
+h1, h2 {
+  margin-left: 30%
+}
+.total-clock {
+  display: block;
+  justify-content: center;
+  font-family: 'Rakkas', cursive;
+  background-color: lightgreen;
+  border: 5px solid black;
+  width: 30%;
+  height: 50%;
+  margin-left: 35%
+}
