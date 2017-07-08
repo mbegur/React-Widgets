@@ -10,8 +10,6 @@ class Weather extends React.Component{
   }
 
   getWeather(pos) {
-
-
     let xmlhttp = new XMLHttpRequest();
 
     xmlhttp.onreadystatechange = () => {
@@ -21,15 +19,15 @@ class Weather extends React.Component{
         }
     };
 
-    let lattitude = pos.coords.lattitude;
+    let latitude = pos.coords.latitude;
     let longitude = pos.coords.longitude;
-    const apiKey = 'ec33bdff3450bd19b2b158fe87bad9cd';
-    xmlhttp.open("GET", `http://api.openweathermap.org/data/2.5/weather?lat=${lattitude}&lon=${longitude}` + apiKey, true);
+    const apiKey = '&APPID=' + 'ec33bdff3450bd19b2b158fe87bad9cd';
+    xmlhttp.open("GET", `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}` + apiKey, true);
     xmlhttp.send();
   }
 
   componentDidMount() {
-    navigator.geolocation.getCurrentPosition();
+    navigator.geolocation.getCurrentPosition(this.getWeather);
     // const coorlink = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}`
   }
 
@@ -37,8 +35,11 @@ class Weather extends React.Component{
     return(
       <div classname='weather'>
         <h1>Weather</h1>
-        <h2>{this.state.weather.name}</h2>
-        <h2>{this.state.weather.tempeature}</h2>
+        {this.state.weather ?
+        <div>
+          <h2>{this.state.weather.name}</h2>
+          <h2>{this.state.weather.main.temp}</h2> </div> : "loading weather"
+        }
       </div>
     );
   }
