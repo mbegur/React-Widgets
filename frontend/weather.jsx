@@ -25,6 +25,7 @@ class Weather extends React.Component{
     xmlhttp.open("GET", `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}` + apiKey, true);
     xmlhttp.send();
   }
+  
 
   componentDidMount() {
     navigator.geolocation.getCurrentPosition(this.getWeather);
