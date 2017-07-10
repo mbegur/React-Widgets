@@ -11,9 +11,9 @@ class Clock extends React.Component {
 
   render() {
     return (
-      <div className="total-clock">
+      <div className="clock">
         <h1>Clock</h1>
-        <h2 className="clock">{this.state.time.toLocaleTimeString()}</h2>
+        <h2>{this.state.time.toLocaleTimeString()}</h2>
       </div>
     );
   }
